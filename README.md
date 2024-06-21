@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides a detailed walkthrough of the process of masking clouds and cloud shadows in Sentinel-2 (S2) surface reflectance (SR) data using the `s2cloudless` algorithm with Google Earth Engine (GEE). The process includes setting up the environment, defining cloud and cloud shadow components, building a cloud-free composite, and visualizing the results using Folium.
+This document provides a detailed walkthrough of the process of masking clouds and cloud shadows in Sentinel-2 (S2) surface reflectance (SR) data using the `s2cloudless` algorithm with Google Earth Engine (GEE).In this project, we were using google earth engine and google cloud to acquire the images and filter cloud.  The process includes setting up the environment, defining cloud and cloud shadow components, building a cloud-free composite, and visualizing the results using Folium. Finally, the acquired images were stored  [here](https://drive.google.com/drive/u/0/folders/1JGBZcGld6xLgcLSM_gWz-Fd6kAK6jeoN), to access it, please send us the request.
 
 ---
 
@@ -15,7 +15,7 @@ This document provides a detailed walkthrough of the process of masking clouds a
 
 2. **Define Parameters**:
    - Set the start and end dates for the image collection.
-   - Specify the path to the shapefile defining the Area of Interest (AOI).
+   - We also clipped the shapefile of Burera  district in ArcGIS pro so that we acquire images of the desired location. Specify the path to the shapefile defining the Area of Interest (AOI).
 
 ---
 
@@ -24,7 +24,7 @@ This document provides a detailed walkthrough of the process of masking clouds a
 ### Assemble Cloud Mask Components
 
 1. **Define Collection Filter and Cloud Mask Parameters**:
-   - Parameters like AOI, start and end dates, cloud filter percentage, cloud probability threshold, near-infrared reflectance threshold, cloud projection distance, and buffer distance are defined to filter the Sentinel-2 image collection and identify clouds and shadows.
+   - We defined the parameters; AOI, start and end dates, cloud filter percentage, cloud probability threshold, near-infrared reflectance threshold, cloud projection distance, and buffer distance to filter the Sentinel-2 image collection and identify clouds and shadows.
 
 2. **Build Sentinel-2 Collection**:
    - Load the Sentinel-2 surface reflectance and cloud probability collections.
@@ -37,20 +37,17 @@ This document provides a detailed walkthrough of the process of masking clouds a
 
 ---
 
-## Model Training and Evaluation
-
 ### Visualize and Evaluate Cloud Mask Components
 
 1. **Define Visualization Functions**:
-   - Use Folium to create an interactive map.
-   - Define methods to display Earth Engine image tiles on the map.
+   - Use Folium to create an interactive map. Define methods to display Earth Engine image tiles on the map.
 
 2. **Display Cloud and Cloud Shadow Components**:
    - Mosaic the image collection.
    - Prepare and display various mask components like clouds, shadows, dark pixels, probability, and cloudmask.
 
 3. **Evaluate Mask Components**:
-   - Use interactive maps to toggle layers on and off, evaluating the effectiveness of different parameters.
+   - We used interactive maps to toggle layers on and off, evaluating the effectiveness of different parameters.
    - Experiment with different values for cloud probability threshold, NIR threshold, cloud projection distance, and buffer to optimize the mask for different conditions.
 
 ---
@@ -78,4 +75,4 @@ This document provides a detailed walkthrough of the process of masking clouds a
    - Use Folium to create an interactive map.
    - Add the cloud-free composite to the map and display it.
 
-By following these steps, you can effectively mask clouds and cloud shadows in Sentinel-2 data using Earth Engine and `s2cloudless`, producing a cloud-free composite image suitable for further analysis. This approach leverages the power of Earth Engine for large-scale geospatial data processing and visualization.
+By following these steps, you can effectively mask clouds and cloud shadows in Sentinel-2 data using Earth Engine and `s2cloudless`, producing a cloud-free composite image suitable for further analysis. This approach leverages the power of Earth Engine for large-scale geospatial data processing and visualization. You can repricate or clone the codes to do the reprication for the district we know!, the next steps was are to see how these images can be used to effectively answer somequestions related to biodiversity, settlements, biodiversity,... the main target is to investigate the use of machine learning.
